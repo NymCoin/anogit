@@ -1,0 +1,11 @@
+#!/bin/bash
+
+JOBID=`date +%s`
+ANOGIT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+ANOGIT_JOB_NAME=`basename $ANOGIT_PATH`
+cat $ANOGIT_PATH/anogit-random-push-template | sed  "s#GITREPODIR#$ANOGIT_PATH#" >$HOME/anogit-cronjob-$JOBID-$ANOGIT_JOB_NAME
+
+chmod +x $HOME/anogit-cronjob-$JOBID-$ANOGIT_JOB_NAME
+
+echo "Please run crontab -e and add $HOME/anogit-cronjob-$JOBID-$ANOGIT_JOB_NAME to run on a daily basis"
+echo "Alternatively, if you would like to push manually, run the script and it will push on a random delay"

@@ -1,0 +1,6 @@
+#!/bin/bash
+ANON_DATE="`date -d @\`git rev-list --count --all\``"
+GIT_AUTHOR_DATE="$ANON_DATE" git commit $*
+git commit --no-edit --amend --date="$ANON_DATE" --author="John Doe <anon@example.com>"
+
+

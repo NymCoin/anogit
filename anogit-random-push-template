@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sleep $(( ($RANDOM % 1440)*60 + ($RANDOM % 60) ))
+cd GITREPODIR
+git push --all
